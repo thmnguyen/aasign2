@@ -43,7 +43,8 @@
             email VARCHAR(20) NOT NULL,
             ph_num INT(12) NOT NULL,
             skills VARCHAR(20) NOT NULL,
-            comments VARCHAR(40) NOT NULL
+            comments VARCHAR(40) NOT NULL,
+            status VARCHAR(20) NOT NULL
             )";
         
             if ($conn->query($createTableQuery) === TRUE) {
@@ -198,7 +199,7 @@
 
         //SQL query to insert data to the table
         $EOInumber = "";
-		$query = "insert into $sql_table (job_ref_num, f_name, l_name, dob, gender, address, city, state, code, email, ph_num, skills, comments) values ('$job_ref_num', '$f_name', '$l_name', '$dob', '$gender', '$address', '$city', '$state', '$code', '$email', '$ph_num', '$checkBox', '$comments');";		//Execute the query
+		$query = "insert into $sql_table (job_ref_num, f_name, l_name, dob, gender, address, city, state, code, email, ph_num, skills, comments, status) values ('$job_ref_num', '$f_name', '$l_name', '$dob', '$gender', '$address', '$city', '$state', '$code', '$email', '$ph_num', '$checkBox', '$comments', 'NEW');";		//Execute the query
 		$result = mysqli_query($conn, $query);	//execute the query
 		if (!$result){		//if execution unsuccessful
 			echo "<p class='wrong'>Something is wrong with ", $query, "</p>";
