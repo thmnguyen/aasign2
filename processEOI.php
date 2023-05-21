@@ -78,7 +78,6 @@
         } else {
             $errMsg .= "<p>Please enter the Job Reference Number.</p>";
         }
-    
         //First name input
         if (isset($_POST["f_name"]) && $_POST['f_name'] != "") {
             $f_name = sanitise_input($_POST["f_name"]);
@@ -197,18 +196,24 @@
                 header("location: apply.php");
         }    
 
-        //SQL query to insert data to the table
-        $EOInumber = "";
-		$query = "insert into $sql_table (job_ref_num, f_name, l_name, dob, gender, address, city, state, code, email, ph_num, skills, comments, status) values ('$job_ref_num', '$f_name', '$l_name', '$dob', '$gender', '$address', '$city', '$state', '$code', '$email', '$ph_num', '$checkBox', '$comments', 'NEW');";		//Execute the query
-		$result = mysqli_query($conn, $query);	//execute the query
-		if (!$result){		//if execution unsuccessful
-			echo "<p class='wrong'>Something is wrong with ", $query, "</p>";
-		}
-		else{	
-			echo "<p class='ok'>Your application has been successfully submitted. Your application reference number is:", $EOInumber, "</p>";
-		}
-		mysqli_close($conn);		//close the database connection
-	
+        //Print validation message and action to stop the code to return input form if there is error
+        if ($errMsg != "") {
+			echo "<p>$errMsg</p>";
+            echo '<a href="apply.php">Back to Apply</a>';
+            exit;
+		} else{
+            //SQL query to insert data to the table
+            $EOInumber = "";
+            $query = "insert into $sql_table (job_ref_num, f_name, l_name, dob, gender, address, city, state, code, email, ph_num, skills, comments, status) values ('$job_ref_num', '$f_name', '$l_name', '$dob', '$gender', '$address', '$city', '$state', '$code', '$email', '$ph_num', '$checkBox', '$comments', 'NEW');";		//Execute the query
+            $result = mysqli_query($conn, $query);	//execute the query
+            if (!$result){		//if execution unsuccessful
+                echo "<p class='wrong'>Something is wrong with ", $query, "</p>";
+            }
+            else{	
+                echo "<p class='ok'>Your application has been successfully submitted.</p>";
+            }
+            mysqli_close($conn);		//close the database connection
+        }
 	?>
 </body>
 </html>
