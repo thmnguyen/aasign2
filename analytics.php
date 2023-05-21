@@ -71,6 +71,7 @@
 
             <form method="post" action="analytics.php">
             <fieldset id="f1"><legend>Search EOIs Details</legend>
+                <br><br>
                 <p class="row">	<label for="job_ref_num">Job Ref Number: </label>
                     <input type="text" name="job_ref_num" id="job_ref_num" /></p>
                 <p class="row">	<label for="f_name">First Name: </label>
@@ -83,20 +84,24 @@
                     <option value="CURRENT">CURRENT</option>
                     <option value="FINAL">FINAL</option>
                 </select>
+                <br><br>
                 <p>	<input type="submit" value="Search" /></p>
             </fieldset>
             </form>  
 
             <form method="post" action="delete_data.php">
             <fieldset id="f2"><legend>Delete EOI Form</legend>
+                <br><br>
                 <p class="row">	<label for="job_ref_num">Job Ref Number: </label>
                     <input type="text" name="job_ref_num" id="job_ref_num" /></p>
+                    <br>
                 <p>	<input type="submit" value="Delete" /></p>
             </fieldset>
             </form> 
 
             <form method="post" action="change_data.php">
             <fieldset id="f3"><legend>Change Status</legend>
+                <br><br>
                 <p class="row">	<label for="EOInumber">ID Number: </label>
                     <input type="text" name="EOInumber" id="EOInumber" /></p>
                 <label for="status">Status:</label>
@@ -105,7 +110,7 @@
                     <option value="CURRENT">CURRENT</option>
                     <option value="FINAL">FINAL</option>
                 </select>
-        <br><br>
+                <br><br>
                 <p>	<input type="submit" value="Change" /></p>
             </fieldset>
             </form>
