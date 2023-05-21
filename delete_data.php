@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="Admin Panel">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style_manage.css"> 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -18,7 +18,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="manage.php">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
@@ -56,10 +56,14 @@
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
-            </div>
-            
-         
+            </div> 
         </div>
+            <div>
+                <?php 
+                    echo "<p>TEST TEST TEST</p>";//to fix the php issue doesn't print out echo in the next php section
+                    echo "<p>TEST TEST TEST</p>";//
+                ?>
+            </div>
             <div>
                 <!-- Php Table -->
                 <?php
@@ -85,8 +89,13 @@
                         $sql_table = "eoi";	//table's name
                         $query = "delete from $sql_table where $condition;";		//MySQL command
                         $result = mysqli_query($conn, $query); // execute the query
-                        echo "<p>EOI form ", $job_ref_num, " has been deleted</p>";
-                        mysqli_close($conn); // close connection
+                        
+                        if ($result) {
+                            echo "<p>Job Ref Number: ", $job_ref_num, " has been deleted </p>";
+                        } else {
+                            echo "<p>Failed to execute the query</p>";
+                        }                   
+                        mysqli_close($conn); // Close connection
                     }
                     else{
                         header("location: analytics.php");		//redirect to form
