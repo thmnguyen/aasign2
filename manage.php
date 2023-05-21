@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="Admin Panel">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style_manage.css"> 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -67,15 +67,38 @@
                     <i class="uil uil-tachometer-fast-alt"></i>
                     <span class="text">Dashboard</span>
                 </div>
-
-                <div class="boxes">
-                    <div class="box box1">
+                    <div class="boxes">
+                        <div class="box box1">
                         <i class="uil uil-thumbs-up"></i>
                         <span class="text">Total Applicants</span>
-                        <span class="number">$record["EOInumber"]</span>
+                        <span class="number">
+                       
+                        <?php //PHP code to retrive the number of row in the database to find the number of applicants
+                            require_once("settings.php");
+                            $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
+                            //Check connection
+                            if (!$conn){
+                                echo "<p>Database connection failure.</p>";		//connection failed
+                            } else {
+                                $sql_table = "eoi";
+                            // Retrieve the number of entries
+                            $query = "select COUNT(*) AS total from $sql_table";
+                            $result = mysqli_query($conn, $query);
+                            if ($result) {
+                                $row = mysqli_fetch_assoc($result);
+                                $totalEntries = $row['total'];
+                                echo $totalEntries;
+                            } else {
+                                echo 'Failed to retrieve the number of entries.';
+                            }
+                        }
+                            // Close the database connection
+                            mysqli_close($conn);
+                        ?>                            
+                        </span>
                     </div>
-                </div>
             </div>
+
 
             <div class="activity">
                 <div class="title">
