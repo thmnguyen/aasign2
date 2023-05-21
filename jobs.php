@@ -43,7 +43,7 @@
 				If you are passionate about software development and want to work with a dynamic team on exciting projects, we
 				encourage you to apply.</p>
 				
-				<a href="apply.html" class="btn-one">Quick Apply</a>
+				<a href="apply.php" class="btn-one">Quick Apply</a>
 
 				</aside>
 			</div>
@@ -113,7 +113,7 @@
           
                       </ul>
                       <br>
-                      <a href="apply.html" class="btn-one">Quick Apply</a>
+                      <a href="apply.php" class="btn-one">Quick Apply</a>
                     </div>
                 </details>
                 
@@ -161,7 +161,7 @@
                               </li>
                           </ul>
                           <br>                       
-                      <a href="apply.html" class="btn-one">Quick Apply</a>
+                      <a href="apply.php" class="btn-one">Quick Apply</a>
                     </div>
                 </details>               
             </div>
