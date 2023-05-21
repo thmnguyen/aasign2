@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="Admin Panel">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style_manage.css"> 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -56,10 +56,14 @@
             <div class="search-box">
                 <i class="uil uil-search"></i>
                 <input type="text" placeholder="Search here...">
-            </div>
-            
-         
+            </div>     
         </div>
+            <div>
+                <?php 
+                    echo "<p>TEST TEST TEST</p>";//to fix the php issue doesn't print out echo in the next php section
+                    echo "<p>TEST TEST TEST</p>";//
+                ?>
+            </div>
             <div>
                 <!-- Php Table -->
                 <?php
@@ -70,7 +74,7 @@
                         return $data;
                     }
 
-
+               
                     if (isset($_POST["EOInumber"])){		//if successfully receive form data
                         //get information from form
                         $EOInumber = sanitise_input($_POST["EOInumber"]);
@@ -78,23 +82,28 @@
 
                         //condition to extract the data from the table
                         $condition = "";
-                        if ($EOInumber != "")		
+                        if ($EOInumber != "")
                             $condition .= "EOInumber='$EOInumber'";
 
                         require_once("settings.php");	//database information
-                        $conn = @mysqli_connect($host,$user,$pwd,$sql_db);	//connect to database
+                        $conn = mysqli_connect($host,$user,$pwd,$sql_db);	//connect to database
                         $sql_table = "eoi";	//table's name
+                        
                         $query = "update $sql_table set status = '$status' where EOInumber = $EOInumber;";		//MySQL command
                         $result = mysqli_query($conn, $query); // execute the query
-                   
-                        echo "Status updated successfully";
-
-                        mysqli_close($conn); // close connection
+                        
+                        if ($result) {
+                            echo "<p>Job ID: ", $EOInumber, " - Status has been updated to " , $status, "</p>";
+                        } else {
+                            echo "<p>Failed to execute the query</p>";
+                        }                   
+                        mysqli_close($conn); // Close connection
+                 
+                    } else {
+                        header("location: analytics.php"); // Redirect to form
                     }
-                    else{
-                        header("location: analytics.php");		//redirect to form
-                    }                   
-                ?>
+         
+                  ?>
             </div>
     </section>
 
