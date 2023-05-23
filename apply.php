@@ -27,7 +27,7 @@
   <!-- Section Job Application -->
   <div class="apply">
     <div class="container-apply">
-        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="post" action="processEOI.php">
         <h1>Job Application</h1>
 			<div class="job-ref-num">
 				<label for="job_ref_num">Job Reference Number</label>
