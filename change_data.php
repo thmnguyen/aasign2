@@ -12,7 +12,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-               <img src="images/logo.png" alt="">
+                <a href="index.php"><img src="images/logo.png" alt="" id="logo"></a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="logout.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -58,12 +58,7 @@
                 <input type="text" placeholder="Search here...">
             </div>     
         </div>
-            <div>
-                <?php 
-                    echo "<p>TEST TEST TEST</p>";//to fix the php issue doesn't print out echo in the next php section
-                    echo "<p>TEST TEST TEST</p>";//
-                ?>
-            </div>
+
             <div>
                 <!-- Php Table -->
                 <?php
@@ -93,7 +88,7 @@
                         $result = mysqli_query($conn, $query); // execute the query
                         
                         if ($result) {
-                            echo "<p>Job ID: ", $EOInumber, " - Status has been updated to " , $status, "</p>";
+                            echo "<br><br><br><p>Job ID: ", $EOInumber, " - Status has been updated to " , $status, "</p>";
                         } else {
                             echo "<p>Failed to execute the query</p>";
                         }                   
