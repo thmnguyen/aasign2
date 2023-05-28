@@ -27,26 +27,26 @@
   <!-- Section Job Application -->
   <div class="apply">
     <div class="container-apply">
-        <form method="post" action="processEOI.php">
+        <form method="post" action="processEOI.php" novalidate>
         <h1>Job Application</h1>
 			<div class="job-ref-num">
 				<label for="job_ref_num">Job Reference Number</label>
-				<input type="text" name="job_ref_num" id="job_ref_num" pattern="^.{4}[a-zA-Z0-9]$" required="required">
+				<input type="text" name="job_ref_num" id="job_ref_num" pattern="^.{4}[a-zA-Z0-9]$" required="required" novalidate="novalidate">
 			</div>
       <div class="name">
           <div>
               <label for="f_name">First Name</label>
-              <input type="text" name="f_name" id="f_name" pattern="^[a-zA-Z]+$" maxlength="20" required="required">
+              <input type="text" name="f_name" id="f_name" pattern="^[a-zA-Z]+$" maxlength="20" required="required" novalidate="novalidate">
           </div>
           <div>
               <label for="l_name">Last Name</label>
-              <input type="text" name="l_name" id="l_name" pattern="^[a-zA-Z]+$" maxlength="20" required="required">
+              <input type="text" name="l_name" id="l_name" pattern="^[a-zA-Z]+$" maxlength="20" required="required" novalidate="novalidate">
           </div>
       </div>
 			<div class="details">
 				
 					<label for="dob">Date of Birth</label>
-					<input type="text" name="dob" id="dob" placeholder="dd/mm/yyyy" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required">
+					<input type="text" name="dob" id="dob" placeholder="dd/mm/yyyy" pattern="\d{1,2}\/\d{1,2}\/\d{4}" required="required" novalidate="novalidate">
 				</div>
 			
       <div>  
@@ -62,12 +62,12 @@
 			</div>
             <div class="street">
                 <label for="address">Street</label>
-                <input type="text" name="address" id="address" maxlength="40" required="required">
+                <input type="text" name="address" id="address" maxlength="40" required="required" novalidate="novalidate">
             </div>
             <div class="address-info">
               <div>
                 <label for="city">City</label>
-                <input type="text" name="city" id="city" maxlength="40" required="required">
+                <input type="text" name="city" id="city" maxlength="40" required="required" novalidate="novalidate">
               </div>
               <div>
               <label for="state">State</label>
@@ -85,7 +85,7 @@
               </div>
               <div>
                 <label for="code">Postcode</label>
-                <input type="text" name="code" id="code" maxlength="4" pattern="^.{3}[0-9]$" required="required">
+                <input type="text" name="code" id="code" maxlength="4" pattern="^.{3}[0-9]$" required="required" novalidate="novalidate">
               </div>
             </div>
 
@@ -96,7 +96,7 @@
                 </div>
                 <div>
                     <label for="ph_num">Phone Number</label>
-                    <input type="text" name="ph_num" id="ph_num" pattern="^.{7,11}[0-9]$" required="required">
+                    <input type="text" name="ph_num" id="ph_num" pattern="^.{7,11}[0-9]$" required="required" novalidate="novalidate">
                 </div>
               </div>
 			  
