@@ -12,7 +12,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-               <img src="images/logo.png" alt="">
+            <a href="index.php"><img src="images/logo.png" alt="" id="logo"></a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="logout.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
@@ -94,7 +94,7 @@
                 <br><br>
                 <p class="row">	<label for="job_ref_num">Job Ref Number: </label>
                     <input type="text" name="job_ref_num" id="job_ref_num" /></p>
-                    <br>
+                    <br><br><br><br>
                 <p>	<input type="submit" value="Delete" /></p>
             </fieldset>
             </form> 
@@ -110,7 +110,7 @@
                     <option value="CURRENT">CURRENT</option>
                     <option value="FINAL">FINAL</option>
                 </select>
-                <br><br>
+                <br><br><br><br>
                 <p>	<input type="submit" value="Change" /></p>
             </fieldset>
             </form>
@@ -120,7 +120,7 @@
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-clock-three"></i>
-                    <span class="text">Recent Activity</span>
+                    <span class="text">Search Results</span>
                 </div>
 
                 <div class="activity-data">
