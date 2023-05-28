@@ -104,17 +104,25 @@
             $errMsg .= "<p>Please enter your last name.</p>";
         }       
         
-        //DoB input
+        // DoB input and validate age between 15 and 80 years old
         if (isset($_POST["dob"]) && $_POST['dob'] != "") {
             $dob = sanitise_input($_POST["dob"]);
-        
-            if (!preg_match("/\d{1,2}\/\d{1,2}\/\d{4}/", $dob)) {
-                $errMsg .= "<p>Enter Date of Birth in the form dd/mm/yyyy</p>";
+
+            $dobDate = date_create_from_format('d/m/Y', $dob);
+            if ($dobDate === false) {
+                $errMsg .= "<p>Enter Date of Birth in the form dd/mm/yyyy.</p>";
+            } else {
+                $dobFormatted = date_format($dobDate, 'm/d/Y'); // Convert DoB to m/d/Y format
+                $_age = floor((time() - strtotime($dobFormatted)) / 31556926); // Calculate the age using the formatted DoB
+
+                if ($_age < 15 || $_age > 80) {
+                    $errMsg .= "<p>Age must be between 15 and 80 years old. Calculated age: " . $_age . " years old.</p>";
+                }
             }
         } else {
             $errMsg .= "<p>Please enter your Date of Birth.</p>";
-        }     
-        
+        }
+
         //Gender Radio input
         if (isset($_POST["gender"])) {
 			$gender = sanitise_input($_POST["gender"]);		
@@ -152,17 +160,38 @@
             $errMsg .= "<p>Please select your State.</p>";
         }      
 
-        //Post code input - Might still need to upgrade the code to validate for individual state
+        // Post code input - Validates based on the selected state
         if (isset($_POST["code"]) && $_POST['code'] != "") {
             $code = sanitise_input($_POST["code"]);
-        
+
             if (!preg_match("/^[0-9]*$/", $code)) {
-                $errMsg .= "<p>Only number allowed for Post Code</p>";
-            } else if (strlen($code) > 4) {
-                $errMsg .= "<p>Post code has to be 4 digits</p>";
+                $errMsg .= "<p>Only numbers are allowed for Post Code.</p>";
+            } else if (strlen($code) != 4) {
+                $errMsg .= "<p>Post code has to be 4 digits.</p>";
+            } else {
+                $stateCode = substr($state, 0, 3); // Get the first three letters of the state
+                $expectedCode = ""; // Initialize the expected code based on the state
+
+                if ($stateCode === "NSW" || $stateCode === "ACT") {
+                    $expectedCode = "2";
+                } else if ($stateCode === "VIC") {
+                    $expectedCode = "3";
+                } else if ($stateCode === "QLD") {
+                    $expectedCode = "4";
+                } else if ($stateCode === "SA") {
+                    $expectedCode = "5";
+                } else if ($stateCode === "WA") {
+                    $expectedCode = "6";
+                } else if ($stateCode === "TAS") {
+                    $expectedCode = "7";
+                }
+
+                if (substr($code, 0, 1) !== $expectedCode) {
+                    $errMsg .= "<p>Postcode must start with $expectedCode for $state.</p>";
+                }
             }
         } else {
-            $errMsg .= "<p>Please enter your post code</p>";
+            $errMsg .= "<p>Please enter your post code.</p>";
         }
         
         //Email Input
