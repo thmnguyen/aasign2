@@ -1,3 +1,12 @@
+<?php
+// Only allows access to page if the user has been through the authentication
+// page and has the authenticated boolean set in the session.
+session_start();
+if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+    header("Location: ./login_main.php?error_msg=Unauthenticated");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +21,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-               <img src="images/logo.png" alt="">
+            <a href="index.php"><img src="images/logo.png" alt="" id="logo"></a>
             </div>
         </div>
 
@@ -30,7 +39,7 @@
             </ul>
             
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="logout.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>
