@@ -9,7 +9,7 @@
             <li><a href="jobs.php">Careers</a></li>
             <li><a href="apply.php">Apply</a></li>
             <li><a href="enhancements.php">Enhancements</a></li>
-            <li><a href="loginmanger.php">Manage</a></li>
+            <li><a href="manage.php">Manage</a></li>
           </ul>
         </nav>
   </header>
