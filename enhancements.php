@@ -24,8 +24,16 @@
     </div>
   </section>
   <!-- Enhancement -->
+  
   <div class="enhancements">
     <h1>Enhancements</h1>
+    <br><br><br>
+    <h2>Admin Login Page and Dashboard</h2>
+    <br>
+    <p>Admin login page that can validate username and password and logout function</p>
+    <p><cite>(Ref: https://www.codingnepalweb.com/admin-dashboard-panel-html-css-javascript/)</cite> </p>
+    <br>
+    <p><a href="manage.php#enhancement_3">Click Here</a></p>
     <br><br><br>
     <h2>Group Member Profile Cards</h2>
     <br>
@@ -52,7 +60,7 @@
     <br><br><br>
     <h2>Short Video</h2>
     <br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-zHMVe4bZ2g"></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/AL_ykbch3S0"></iframe>
   </div>
 
  <!--Footer Section-->
