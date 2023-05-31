@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["username"]) && isset(
             <input type="text" name="password" placeholder="Password: 1234" id="password" required="required">
 
             <button type="submit">Log In</button>
+            <button onclick="document.location='register.php'">Admin Register</button>
             
         </form>
 </body>
